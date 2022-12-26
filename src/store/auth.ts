@@ -4,9 +4,14 @@ interface UserType {
 	password: string
 }
 
+interface StateType {
+	auth: null | UserType
+	users: null | UserType[]
+}
+
 export default {
 	state: {
-		auth: null,
+		auth: { id: 1, login: 'tigran', password: 'qwerty123' },
 		users: [
 			{ id: 1, login: 'tigran', password: 'qwerty123' },
 			{ id: 2, login: 'anya', password: '12345t' },
@@ -17,15 +22,15 @@ export default {
 		],
 	},
 	getters: {
-		isAuth: (state: any) => !!state.auth,
-		getAuth: (state: any) => state.auth,
-		getUsers: (state: any) => state.users,
+		isAuth: (state: StateType) => !!state.auth,
+		getAuth: (state: StateType) => state.auth,
+		getUsers: (state: StateType) => state.users,
 	},
 	mutations: {
-		setUser(state: any, action: UserType) {
+		setUser(state: StateType, action: UserType) {
 			state.auth = action
 		},
-		logout(state: any) {
+		logout(state: StateType) {
 			state.auth = null
 		},
 	},

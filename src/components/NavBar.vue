@@ -166,6 +166,48 @@
 							role="button"
 							aria-expanded="false"
 						>
+							<span class="nav-link-title">Админ часть</span>
+						</a>
+						<div class="dropdown-menu">
+							<div class="dropdown-menu-columns">
+								<div class="dropdown-menu-column">
+									<router-link class="dropdown-item" to="/profile"
+										>Заявки</router-link
+									>
+									<router-link class="dropdown-item" to="/orders"
+										>Теплоходы</router-link
+									>
+									<router-link class="dropdown-item" to="/orders"
+										>Гостиница</router-link
+									>
+									<router-link class="dropdown-item" to="/orders"
+										>Экскурсии, услуги</router-link
+									>
+									<router-link class="dropdown-item" to="/orders"
+										>Питание</router-link
+									>
+									<router-link class="dropdown-item" to="/orders"
+										>Пользователи</router-link
+									>
+									<router-link class="dropdown-item" to="/orders"
+										>Настройки</router-link
+									>
+									<router-link class="dropdown-item" to="/orders"
+										>Программы</router-link
+									>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a
+							class="nav-link dropdown-toggle"
+							href="#navbar-base"
+							data-bs-toggle="dropdown"
+							data-bs-auto-close="false"
+							role="button"
+							aria-expanded="false"
+						>
 							<span class="nav-link-title">Личный кабинет</span>
 						</a>
 						<div class="dropdown-menu">
