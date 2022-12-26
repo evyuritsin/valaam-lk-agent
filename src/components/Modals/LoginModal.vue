@@ -66,7 +66,6 @@ export default {
 	methods: {
 		clickToLogin() {
 			this.error = false
-			const user = { login: this.login, password: this.password }
 			const findUser = this.allUsers.find(
 				user => user.login === this.login && user.password === this.password
 			)

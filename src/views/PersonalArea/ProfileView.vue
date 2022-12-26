@@ -98,7 +98,7 @@
 </template>
 
 <script>
-import ChangePasswordModal from '@/components/ChangePasswordModal.vue'
+import ChangePasswordModal from '@/components/Modals/ChangePasswordModal.vue'
 import TelefonItem from '@/components/TelefonItem.vue'
 import AlertDanger from '@/components/Alert/AlertDanger.vue'
 import AlertSuccessful from '@/components/Alert/AlertSuccessful.vue'
@@ -118,9 +118,7 @@ export default {
 			middleName: 'Иванович',
 			password: '12345',
 			email: 'ivanov@gmail.com',
-			telefons: [
-				{ id: 1, value: '' },
-			],
+			telefons: [{ id: 1, value: '' }],
 		},
 	}),
 	methods: {

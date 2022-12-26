@@ -72,10 +72,9 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component'
 import { defineComponent } from 'vue'
 //import MotorShipsItem from '@/components/MotorShipsItem.vue';
-import AlertDanger from './Alert/AlertDanger.vue'
+import AlertDanger from '../Alert/AlertDanger.vue'
 
 export default defineComponent({
 	props: [],

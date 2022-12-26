@@ -213,10 +213,10 @@
 						<div class="dropdown-menu">
 							<div class="dropdown-menu-columns">
 								<div class="dropdown-menu-column">
-									<router-link class="dropdown-item" to="/profile"
+									<router-link class="dropdown-item" to="/personal-area/profile"
 										>Профиль</router-link
 									>
-									<router-link class="dropdown-item" to="/orders"
+									<router-link class="dropdown-item" to="/personal-area/orders"
 										>Мои заявки</router-link
 									>
 								</div>
@@ -234,7 +234,7 @@
 import { Options, Vue } from 'vue-class-component'
 //import MotorShipsItem from '@/components/MotorShipsItem.vue';
 import store from '@/store'
-import LoginModal from '@/components/LoginModal.vue'
+import LoginModal from '@/components/Modals/LoginModal.vue'
 
 export default {
 	props: [],

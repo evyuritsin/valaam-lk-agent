@@ -50,10 +50,9 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
 import { defineComponent } from 'vue'
-import OrderInterface from '../types/order'
+import OrderInterface from '../../types/order'
 import store from '@/store'
 
-//import NavBar from '@/components/NavBar.vue';
 import Pagination from '@/components/Pagination.vue'
 import TableOrder from '@/components/TableOrder.vue'
 

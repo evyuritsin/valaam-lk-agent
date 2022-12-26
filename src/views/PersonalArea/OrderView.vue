@@ -98,7 +98,7 @@
 						<div class="row mb-3">
 							<div class="col-auto d-flex align-items-center">
 								<img
-									src="../assets/icons/meat.svg"
+									src="../../assets/icons/meat.svg"
 									alt="Eat Icon"
 									height="40"
 									class="me-2"
@@ -199,7 +199,7 @@
 						<div class="row mb-3">
 							<div class="col-6 d-flex flex-column align-items-start">
 								<div class="d-flex gap-2 align-items-center">
-									<img src="../assets/icons/file.svg" alt="File Icon" />
+									<img src="../../assets/icons/file.svg" alt="File Icon" />
 									<a href="#">Билет.pdf</a>
 								</div>
 							</div>
@@ -257,12 +257,11 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
 import { defineComponent } from 'vue'
-import OrderInterface from '../types/order'
+import OrderInterface from '../../types/order'
 import store from '@/store'
 
 import qrcode from 'qrcode-generator'
 
-//import NavBar from '@/components/NavBar.vue';
 import TouristData from '@/components/TouristData.vue'
 import ConfirmAlert from '@/components/Alert/ConfirmAlert.vue'
 import ConditionAlert from '@/components/Alert/ConditionAlert.vue'
@@ -292,7 +291,7 @@ export default defineComponent({
 		closeIsConfirm() {
 			this.alerts.isCondition = false
 			this.alerts.isConfirm = false
-			this.$router.push('/orders')
+			this.$router.push('/personal-area/orders')
 		},
 	},
 	computed: {
