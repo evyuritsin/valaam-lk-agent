@@ -171,7 +171,7 @@
 						<div class="dropdown-menu">
 							<div class="dropdown-menu-columns">
 								<div class="dropdown-menu-column">
-									<router-link class="dropdown-item" to="/profile"
+									<router-link class="dropdown-item" to="/admin/requests"
 										>Заявки</router-link
 									>
 									<router-link class="dropdown-item" to="/orders"

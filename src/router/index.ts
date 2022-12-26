@@ -1,13 +1,22 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+
+import AdminRequestsView from '../views/Admin/RequestsView.vue'
+import AdminRequestView from '../views/Admin/RequestView.vue'
+
 import ProfileView from '../views/PersonalArea/ProfileView.vue'
-import OrdersView from '../views/PersonalArea/OrdersView.vue'
+import PAOrdersView from '../views/PersonalArea/OrdersView.vue'
 import OrderView from '../views/PersonalArea/OrderView.vue'
 
 const routes: Array<RouteRecordRaw> = [
 	{
-		path: '/admin/orders',
-		name: 'admin-orders',
-		component: ProfileView,
+		path: '/admin/requests',
+		name: 'admin-requests',
+		component: AdminRequestsView,
+	},
+	{
+		path: '/admin/request/:id',
+		name: 'admin-request',
+		component: AdminRequestView,
 	},
 	{
 		path: '/admin/ships',
@@ -52,7 +61,7 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/personal-area/orders',
 		name: 'pa-orders',
-		component: OrdersView,
+		component: PAOrdersView,
 	},
 	{
 		path: '/personal-area/order/:id',
