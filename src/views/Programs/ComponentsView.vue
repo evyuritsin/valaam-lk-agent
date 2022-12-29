@@ -194,7 +194,11 @@
 						</div>
 					</div>
 					<h3>Экскурсии</h3>
-					<div class="row align-items-center mb-2">
+					<div
+						class="row align-items-center mb-2"
+						v-for="tour in tours"
+						:key="tour.id"
+					>
 						<div class="col-3">
 							<select class="form-select">
 								<option>Никольский скит</option>
@@ -206,7 +210,7 @@
 								<input
 									class="form-check-input"
 									type="radio"
-									name="tourType"
+									:name="`tour${tour.id}`"
 									id="tourType1"
 								/>
 								<label class="form-check-label" for="tourType1">
@@ -217,7 +221,7 @@
 								<input
 									class="form-check-input"
 									type="radio"
-									name="tourType"
+									:name="`tour${tour.id}`"
 									id="tourType2"
 									checked
 								/>
@@ -225,44 +229,16 @@
 							</div>
 						</div>
 						<div class="col-1 cursor-pointer">
-							<img src="../../assets/icons/trash.svg" alt="Trash Icon" />
+							<img
+								src="../../assets/icons/trash.svg"
+								alt="Trash Icon"
+								@click="deleteTour(tour.id)"
+							/>
 						</div>
 					</div>
-					<div class="row align-items-center mb-2">
-						<div class="col-3">
-							<select class="form-select">
-								<option>Никольский скит</option>
-								<option>Скиты Всех Святых и Смоленский</option>
-							</select>
-						</div>
-						<div class="col-auto d-flex gap-3">
-							<div class="form-check">
-								<input
-									class="form-check-input"
-									type="radio"
-									name="tourType2"
-									id="tourType1"
-								/>
-								<label class="form-check-label" for="tourType1">
-									Паломническая
-								</label>
-							</div>
-							<div class="form-check">
-								<input
-									class="form-check-input"
-									type="radio"
-									name="tourType2"
-									id="tourType2"
-									checked
-								/>
-								<label class="form-check-label" for="tourType2"> Пешая </label>
-							</div>
-						</div>
-						<div class="col-1 cursor-pointer">
-							<img src="../../assets/icons/trash.svg" alt="Trash Icon" />
-						</div>
-					</div>
-					<button class="btn btn-primary mb-3">Добавить</button>
+					<button class="btn btn-primary mb-3" @click="addTour">
+						Добавить
+					</button>
 					<div class="row mb-3">
 						<div class="col-2">
 							<label class="form-label">Базовая цена</label>
@@ -402,7 +378,19 @@
 </template>
 
 <script>
-export default {}
+export default {
+	data: () => ({
+		tours: [{ id: 1 }, { id: 2 }],
+	}),
+	methods: {
+		addTour() {
+			this.tours.push({ id: Date.now() })
+		},
+		deleteTour(id) {
+			this.tours = this.tours.filter(tour => tour.id !== id)
+		},
+	},
+}
 </script>
 
 <style></style>

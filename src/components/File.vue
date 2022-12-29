@@ -24,8 +24,13 @@
 			</svg>
 			<span>{{ file.name }}</span>
 		</div>
-		<div class="col">
-			<span class="cursor-pointer" @click="deleteFile(file.id)"> X </span>
+		<div class="col-auto">
+			<button
+				class="btn btn-outline-danger rounded-circle delete-btn"
+				@click="deleteFile(file.id)"
+			>
+				X
+			</button>
 		</div>
 	</div>
 </template>
