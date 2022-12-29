@@ -7,6 +7,7 @@ import ProfileView from '../views/PersonalArea/ProfileView.vue'
 import PAOrdersView from '../views/PersonalArea/OrdersView.vue'
 import OrderView from '../views/PersonalArea/OrderView.vue'
 
+import ProgramComponents from '../views/Programs/ComponentsView.vue'
 import ProgramDescriptionView from '../views/Programs/DescriptionView.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -74,6 +75,11 @@ const routes: Array<RouteRecordRaw> = [
 		path: '/programs/description',
 		name: 'p-description',
 		component: ProgramDescriptionView,
+	},
+	{
+		path: '/programs/components',
+		name: 'p-components',
+		component: ProgramComponents,
 	},
 ]
 
