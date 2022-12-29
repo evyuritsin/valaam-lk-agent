@@ -223,6 +223,30 @@
 							</div>
 						</div>
 					</li>
+					<li class="nav-item dropdown">
+						<a
+							class="nav-link dropdown-toggle"
+							href="#navbar-base"
+							data-bs-toggle="dropdown"
+							data-bs-auto-close="false"
+							role="button"
+							aria-expanded="false"
+						>
+							<span class="nav-link-title">Программы</span>
+						</a>
+						<div class="dropdown-menu">
+							<div class="dropdown-menu-columns">
+								<div class="dropdown-menu-column">
+									<router-link class="dropdown-item" to="/programs/components"
+										>Компоненты</router-link
+									>
+									<router-link class="dropdown-item" to="/programs/description"
+										>Описание</router-link
+									>
+								</div>
+							</div>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>

@@ -89,118 +89,37 @@
 							<h3>Фотогалерея</h3>
 						</div>
 						<div class="col">
-							<div class="row mb-3">
-								<div class="col-2">
-									<img
-										src="../../assets/img/photo.svg"
-										alt="Photo"
-										class="h-100"
-									/>
-								</div>
-								<div class="col-4 align-items-end">
-									<div class="mb-1">
-										<label for="description" class="form-label">Описание</label>
-										<input type="text" class="form-control" id="description" />
-									</div>
-									<div class="mb-1">
-										<label for="alt" class="form-label">ALT</label>
-										<input type="text" class="form-control" id="alt" />
-									</div>
-								</div>
-								<div class="col-auto cursor-pointer align-self-center">
-									<img
-										src="../../assets/icons/arrow-narrow-up.svg"
-										alt="Arrow Up"
-										height="30"
-									/>
-									<img
-										src="../../assets/icons/arrow-narrow-down.svg"
-										alt="Arrow Down"
-										height="30"
-									/>
-								</div>
-								<div class="col-auto align-self-center">
-									<div class="form-check">
-										<input
-											class="form-check-input"
-											type="checkbox"
-											id="avatar"
-										/>
-										<label class="form-check-label" for="avatar"
-											>На аватар</label
-										>
-									</div>
-								</div>
-								<div class="col-auto align-self-center">
-									<button
-										class="btn btn-outline-danger rounded-circle delete-btn"
-									>
-										X
-									</button>
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col-2">
-									<img
-										src="../../assets/img/photo.svg"
-										alt="Photo"
-										class="h-100"
-									/>
-								</div>
-								<div class="col-4 align-items-end">
-									<div class="mb-1">
-										<label for="description" class="form-label">Описание</label>
-										<input type="text" class="form-control" id="description" />
-									</div>
-									<div class="mb-1">
-										<label for="alt" class="form-label">ALT</label>
-										<input type="text" class="form-control" id="alt" />
-									</div>
-								</div>
-								<div class="col-auto cursor-pointer align-self-center">
-									<img
-										src="../../assets/icons/arrow-narrow-up.svg"
-										alt="Arrow Up"
-										height="30"
-									/>
-									<img
-										src="../../assets/icons/arrow-narrow-down.svg"
-										alt="Arrow Down"
-										height="30"
-									/>
-								</div>
-								<div class="col-auto align-self-center">
-									<div class="form-check">
-										<input
-											class="form-check-input"
-											type="checkbox"
-											id="avatar"
-										/>
-										<label class="form-check-label" for="avatar"
-											>На аватар</label
-										>
-									</div>
-								</div>
-								<div class="col-auto align-self-center">
-									<button
-										class="btn btn-outline-danger rounded-circle delete-btn"
-									>
-										X
-									</button>
-								</div>
-							</div>
+							<Photo
+								v-for="(photo, index) in photos"
+								:key="photo.id"
+								:photo="photo"
+								:index="index"
+								:deletePhoto="deletePhoto"
+								:moveDown="movePhotoDown"
+								:moveUp="movePhotoUp"
+							/>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-auto offset-2">
-							<button class="btn btn-primary">Добавить фото</button>
+							<button class="btn btn-primary" @click="addPhoto">
+								Добавить фото
+							</button>
 						</div>
 					</div>
 					<h3>Программа</h3>
-					<Day v-for="day in programDays" :key="day.id" />
+					<Day
+						v-for="(day, index) in programDays"
+						:key="day.id"
+						:day="day"
+						:index="index"
+						:deleteDay="deleteDay"
+					/>
 					<div class="row mb-5">
 						<div class="col-auto offset-2">
-							<button class="btn btn-primary">Добавить день</button>
+							<button class="btn btn-primary" @click="addProgramDay">
+								Добавить день
+							</button>
 						</div>
 					</div>
 					<div class="row mb-3">
@@ -281,6 +200,7 @@
 
 <script>
 import File from '@/components/File.vue'
+import Photo from '@/components/Photo.vue'
 import Day from '@/components/Day.vue'
 export default {
 	data: () => ({
@@ -294,6 +214,49 @@ export default {
 	components: {
 		File,
 		Day,
+		Photo,
+	},
+	methods: {
+		addPhoto() {
+			this.photos.push({ id: Date.now() })
+		},
+		deletePhoto(photoId) {
+			this.photos = this.photos.filter(photo => photo.id !== photoId)
+		},
+		movePhotoDown(index) {
+			if (index === this.photos.length - 1) return
+			function moveElement(arr, from, to) {
+				arr.splice(to, 0, arr.splice(from, 1)[0])
+				return arr
+			}
+			this.photos = moveElement(this.photos, index, index + 1)
+		},
+		movePhotoUp(index) {
+			if (index === 0) return
+			const nextElement = this.photos[index - 1]
+			this.photos[index - 1] = this.photos[index]
+			this.photos[index] = nextElement
+		},
+		addProgramDay() {
+			this.programDays.push({ id: Date.now() })
+		},
+		deleteDay(dayId) {
+			this.programDays = this.programDays.filter(day => day.id !== dayId)
+		},
+		clickToInputFile() {
+			this.$refs.inputFile.click()
+		},
+		previewFile() {
+			this.descriptionsFiles.push({
+				name: this.$refs.inputFile.files[0].name,
+				id: Date.now(),
+			})
+		},
+		deleteFile(fileId) {
+			this.descriptionsFiles = this.descriptionsFiles.filter(
+				file => file.id !== fileId
+			)
+		},
 	},
 }
 </script>
