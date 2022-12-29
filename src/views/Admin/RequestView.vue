@@ -198,11 +198,22 @@
 							v-for="(tourist, index) in [...Array(request.persons.length)]"
 							:key="index"
 						/>
-						<button class="btn btn-primary mb-5">Добавить</button>
+						<button class="btn btn-primary mb-5" @click="addPerson">
+							Добавить
+						</button>
 						<h3>Файлы к заявке</h3>
 						<div class="row mb-3">
 							<div class="col-2">
-								<button class="btn btn-primary">Загрузить</button>
+								<button class="btn btn-primary" @click="clickToInputFile">
+									Загрузить
+								</button>
+								<input
+									type="file"
+									id="file"
+									ref="inputFile"
+									class="d-none"
+									@change="previewFile"
+								/>
 							</div>
 							<div class="col-3">
 								<div
@@ -212,7 +223,12 @@
 								>
 									<img src="../../assets/icons/file.svg" alt="File Icon" />
 									<span>{{ file.name }}</span>
-									<img src="../../assets/icons/close.svg" alt="Close Icon" />
+									<img
+										src="../../assets/icons/close.svg"
+										alt="Close Icon"
+										@click="deleteFile(file.id)"
+										class="cursor-pointer"
+									/>
 								</div>
 							</div>
 						</div>
@@ -367,6 +383,21 @@ export default defineComponent({
 			this.alerts.isCondition = false
 			this.alerts.isConfirm = false
 			this.$router.push('/admin/requests')
+		},
+		addPerson() {
+			this.request.persons.push({ id: Date.now() })
+		},
+		clickToInputFile() {
+			;(this.$refs.inputFile as any).click()
+		},
+		previewFile() {
+			this.request.files.push({
+				name: (this.$refs.inputFile as any).files[0].name,
+				id: Date.now(),
+			})
+		},
+		deleteFile(fileId: number) {
+			this.request.files = this.request.files.filter(file => file.id !== fileId)
 		},
 	},
 

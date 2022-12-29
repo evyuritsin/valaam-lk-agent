@@ -68,7 +68,59 @@
 								@deleteTelefon="deleteTelefon"
 								v-model="telefon.value"
 							/>
+							<h3>Реквизиты компании</h3>
+							<div class="row gap-2 mb-3">
+								<div class="col-auto">
+									<label class="form-label">Название*</label>
+									<input type="text" class="form-control" />
+								</div>
+								<div class="col-auto">
+									<label class="form-label">ИНН*</label>
+									<input type="text" class="form-control" />
+								</div>
+								<div class="col-auto">
+									<label class="form-label">КПП</label>
+									<input type="text" class="form-control" />
+								</div>
+								<div class="col-auto">
+									<label class="form-label">Юридический адрес</label>
+									<input type="text" class="form-control" />
+								</div>
+								<div class="col-auto">
+									<label class="form-label">Телефон/Факс*</label>
+									<input type="text" class="form-control" />
+								</div>
+								<div class="col-auto">
+									<label class="form-label">Расчетный счет* </label>
+									<input type="text" class="form-control" />
+								</div>
+								<div class="col-auto">
+									<label class="form-label">Название банка*</label>
+									<input type="text" class="form-control" />
+								</div>
+								<div class="col-auto">
+									<label class="form-label">БИК*</label>
+									<input type="text" class="form-control" />
+								</div>
+								<div class="col-auto">
+									<label class="form-label">Кор.счет банка*</label>
+									<input type="text" class="form-control" />
+								</div>
+								<div class="col-auto">
+									<label class="form-label">Адрес доставки док-ов*</label>
+									<input type="text" class="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-auto">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" />
+										<label class="form-check-label">Плательщик НДС</label>
+									</div>
+								</div>
+							</div>
 						</div>
+
 						<div class="card-footer bg-transparent mt-auto">
 							<div class="btn-list justify-content-end">
 								<a href="#" class="btn">Отменить</a>
