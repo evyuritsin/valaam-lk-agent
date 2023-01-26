@@ -219,6 +219,11 @@
 									<router-link class="dropdown-item" to="/personal-area/orders"
 										>Мои заявки</router-link
 									>
+									<router-link
+										class="dropdown-item"
+										to="/personal-area/messages"
+										>Сообщения</router-link
+									>
 								</div>
 							</div>
 						</div>

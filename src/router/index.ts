@@ -6,6 +6,8 @@ import AdminRequestView from '../views/Admin/RequestView.vue'
 import ProfileView from '../views/PersonalArea/ProfileView.vue'
 import PAOrdersView from '../views/PersonalArea/OrdersView.vue'
 import OrderView from '../views/PersonalArea/OrderView.vue'
+import MessagesView from '../views/PersonalArea/MessagesView.vue'
+import MessageView from '../views/PersonalArea/MessageView.vue'
 
 import ProgramComponents from '../views/Programs/ComponentsView.vue'
 import ProgramDescriptionView from '../views/Programs/DescriptionView.vue'
@@ -70,6 +72,16 @@ const routes: Array<RouteRecordRaw> = [
 		path: '/personal-area/order/:id',
 		name: 'pa-order',
 		component: OrderView,
+	},
+	{
+		path: '/personal-area/messages',
+		name: 'pa-messages',
+		component: MessagesView,
+	},
+	{
+		path: '/personal-area/message/:id',
+		name: 'pa-message',
+		component: MessageView,
 	},
 	{
 		path: '/programs/description',
