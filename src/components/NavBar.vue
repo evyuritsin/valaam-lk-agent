@@ -174,27 +174,6 @@
 									<router-link class="dropdown-item" to="/admin/requests"
 										>Заявки</router-link
 									>
-									<router-link class="dropdown-item" to="/orders"
-										>Теплоходы</router-link
-									>
-									<router-link class="dropdown-item" to="/orders"
-										>Гостиница</router-link
-									>
-									<router-link class="dropdown-item" to="/orders"
-										>Экскурсии, услуги</router-link
-									>
-									<router-link class="dropdown-item" to="/orders"
-										>Питание</router-link
-									>
-									<router-link class="dropdown-item" to="/orders"
-										>Пользователи</router-link
-									>
-									<router-link class="dropdown-item" to="/orders"
-										>Настройки</router-link
-									>
-									<router-link class="dropdown-item" to="/orders"
-										>Программы</router-link
-									>
 								</div>
 							</div>
 						</div>
